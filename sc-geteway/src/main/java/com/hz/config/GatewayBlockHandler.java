@@ -9,10 +9,12 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
-/**
-  *网关限流
- **/
+
 import static org.springframework.web.reactive.function.BodyInserters.fromObject;
+
+/**
+ * 网关限流
+ **/
 
 public class GatewayBlockHandler implements BlockRequestHandler {
 

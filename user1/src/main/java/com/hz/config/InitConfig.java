@@ -1,6 +1,5 @@
 package com.hz.config;
 
-import com.alibaba.csp.sentinel.adapter.gateway.sc.callback.GatewayCallbackManager;
 import com.alibaba.csp.sentinel.adapter.servlet.callback.WebCallbackManager;
 import org.springframework.context.annotation.Configuration;
 
@@ -8,9 +7,7 @@ import org.springframework.context.annotation.Configuration;
 public class InitConfig {
 
     static {
-        //init GatewayBlockHandler
-        GatewayCallbackManager.setBlockHandler(new GatewayBlockHandler());
-
+        //设置统一限流降级扩展实现
         WebCallbackManager.setUrlBlockHandler(new CustomUrlBlockHandler());
     }
 }

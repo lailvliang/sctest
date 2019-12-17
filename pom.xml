@@ -11,6 +11,7 @@
     <modules>
         <module>user1</module>
         <module>user2</module>
+        <module>sc-geteway</module>
     </modules>
 
     <properties>
@@ -20,10 +21,10 @@
         <java.version>8</java.version>
         <!--<commons-collections4.version>4.2</commons-collections4.version>-->
         <!--<fastjson.version>1.2.60</fastjson.version>-->
-        <!--<swagger.version>2.9.2</swagger.version>-->
-        <!--<swagger.ui.version>1.8.7</swagger.ui.version>-->
-        <!--<swagger.mg.ui.version>1.0.6</swagger.mg.ui.version>-->
-        <!--<swagger.butler.version>2.0.1</swagger.butler.version>-->
+        <com.hz.swagger.version>2.9.2</com.hz.swagger.version>
+        <!--<com.hz.swagger.ui.version>1.8.7</com.hz.swagger.ui.version>-->
+        <!--<com.hz.swagger.mg.ui.version>1.0.6</com.hz.swagger.mg.ui.version>-->
+        <!--<com.hz.swagger.butler.version>2.0.1</com.hz.swagger.butler.version>-->
         <!--<jjwt.version>0.9.1</jjwt.version>-->
         <!--<druid-starter>1.1.10</druid-starter>-->
         <!--<jasypt.version>1.14</jasypt.version>-->
@@ -66,6 +67,18 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- com.hz.swagger -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${com.hz.swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${com.hz.swagger.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>

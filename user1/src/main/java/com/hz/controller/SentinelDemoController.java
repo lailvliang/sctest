@@ -2,23 +2,28 @@ package com.hz.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
+@Api("测试")
 @Controller
 @RequestMapping("/test")
 public class SentinelDemoController {
 
+
     /*
     限流
      */
+    @ApiOperation(value = "计算+", notes = "加法")
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     @ResponseBody
     @SentinelResource(value = "listBrand",blockHandler = "deaultBlockHandle")
     public String content() {
+
         return "hi!";
     }
 

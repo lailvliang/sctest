@@ -54,7 +54,7 @@ public class DemoClusterInitFunc implements InitFunc {
 
     private final String flowDataId = APP_NAME + DemoConstants.FLOW_POSTFIX;
     private final String paramDataId = APP_NAME + DemoConstants.PARAM_FLOW_POSTFIX;
-    private final String configDataId = APP_NAME + "-cluster-client-config";
+    private final String configDataId = APP_NAME + "-cluster-client-com.hz.config";
     private final String clusterMapDataId = APP_NAME + DemoConstants.CLUSTER_MAP_POSTFIX;
 
     @Override
@@ -63,15 +63,15 @@ public class DemoClusterInitFunc implements InitFunc {
         initDynamicRuleProperty();
 
         // Register token client related data source.
-        // Token client common config:
+        // Token client common com.hz.config:
         initClientConfigProperty();
-        // Token client assign config (e.g. target token server) retrieved from assign map:
+        // Token client assign com.hz.config (e.g. target token server) retrieved from assign map:
         initClientServerAssignProperty();
 
         // Register token server related data source.
         // Register dynamic rule data source supplier for token server:
         registerClusterRuleSupplier();
-        // Token server transport config extracted from assign map:
+        // Token server transport com.hz.config extracted from assign map:
         initServerTransportConfigProperty();
 
         // Init cluster state property for extracting mode from cluster map data source.
@@ -174,7 +174,7 @@ public class DemoClusterInitFunc implements InitFunc {
         if (groupList.stream().anyMatch(this::machineEqual)) {
             return Optional.empty();
         }
-        // Build client assign config from the client set of target server group.
+        // Build client assign com.hz.config from the client set of target server group.
         for (ClusterGroupEntity group : groupList) {
             if (group.getClientSet().contains(getCurrentMachineId())) {
                 String ip = group.getIp();
